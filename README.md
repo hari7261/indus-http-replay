@@ -3,7 +3,7 @@
 Replay real HTTP API requests from raw text, curl, logs, HAR files, and `.indus.http` blocks directly inside VS Code.
 
 [![Marketplace](https://img.shields.io/badge/VS%20Code-Marketplace-007ACC?logo=visualstudiocode&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=hari7261.indus-http-replay)
-![Version](https://img.shields.io/badge/version-1.0.0-1f883d)
+![Version](https://img.shields.io/badge/version-1.0.1-1f883d)
 ![License](https://img.shields.io/badge/license-MIT-24292f)
 
 ## Why Indus HTTP Replay
@@ -17,23 +17,23 @@ Replay real HTTP API requests from raw text, curl, logs, HAR files, and `.indus.
 
 ### 1) Input Sources
 
-![Input Sources](.github/assets/workflow-input-sources.svg)
+[Open Diagram](.github/assets/workflow-input-sources.svg)
 
 ### 2) Replay Pipeline
 
-![Replay Pipeline](.github/assets/workflow-replay-pipeline.svg)
+[Open Diagram](.github/assets/workflow-replay-pipeline.svg)
 
 ### 3) Diff Analysis
 
-![Diff Analysis](.github/assets/workflow-diff-analysis.svg)
+[Open Diagram](.github/assets/workflow-diff-analysis.svg)
 
 ### 4) Release / Publish Workflow
 
-![Release Workflow](.github/assets/workflow-release-publish.svg)
+[Open Diagram](.github/assets/workflow-release-publish.svg)
 
 ### 5) UML Sequence Diagram
 
-![UML Sequence](.github/assets/uml-sequence.svg)
+[Open Diagram](.github/assets/uml-sequence.svg)
 
 ## Feature Set
 
