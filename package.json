@@ -1,0 +1,154 @@
+{
+  "name": "indus-http-replay",
+  "displayName": "Indus HTTP Replay",
+  "description": "Replay and compare real HTTP API requests from source, curl, logs, HAR, and .indus.http files inside VS Code",
+  "version": "1.0.0",
+  "publisher": "hari7261",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other",
+    "Debuggers"
+  ],
+  "keywords": [
+    "vscode-extension",
+    "http",
+    "api",
+    "replay",
+    "api-testing",
+    "api-debugging",
+    "request-replay",
+    "response-diff",
+    "rest",
+    "curl",
+    "har",
+    "json-diff",
+    "microservices",
+    "developer-tools",
+    "request",
+    "diff"
+  ],
+  "icon": "media/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hari7261/indus-http-replay.git"
+  },
+  "license": "MIT",
+  "activationEvents": [
+    "onLanguage:indus-http",
+    "workspaceContains:**/*.indus.http",
+    "workspaceContains:**/*.har"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "indus.replayHttpRequest",
+        "title": "Indus: Replay HTTP Request",
+        "category": "Indus"
+      },
+      {
+        "command": "indus.configureTargets",
+        "title": "Indus: Configure Targets",
+        "category": "Indus"
+      },
+      {
+        "command": "indus.openReplayHistory",
+        "title": "Indus: Open Replay History",
+        "category": "Indus"
+      },
+      {
+        "command": "indus.clearReplayHistory",
+        "title": "Indus: Clear Replay History",
+        "category": "Indus"
+      },
+      {
+        "command": "indus.replayFromCodeLens",
+        "title": "Indus: Run Request",
+        "category": "Indus"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "indus.replayHttpRequest",
+          "when": "editorHasSelection",
+          "group": "indus@1"
+        }
+      ]
+    },
+    "languages": [
+      {
+        "id": "indus-http",
+        "aliases": ["Indus HTTP", "indus-http"],
+        "extensions": [".indus.http"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "indus-http",
+        "scopeName": "source.indus-http",
+        "path": "./syntaxes/indus-http.tmLanguage.json"
+      }
+    ],
+    "configuration": {
+      "title": "Indus HTTP Replay",
+      "properties": {
+        "indusHttpReplay.targets": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": ["http://localhost:8080"],
+          "description": "List of base URLs to replay requests against"
+        },
+        "indusHttpReplay.defaultHeaders": {
+          "type": "object",
+          "default": {},
+          "description": "Default headers to add to every request"
+        },
+        "indusHttpReplay.timeoutMs": {
+          "type": "number",
+          "default": 30000,
+          "description": "Request timeout in milliseconds"
+        },
+        "indusHttpReplay.followRedirects": {
+          "type": "boolean",
+          "default": true,
+          "description": "Follow HTTP redirects"
+        },
+        "indusHttpReplay.ignoreDiffPaths": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": ["$.timestamp", "$.traceId", "$.meta.requestId"],
+          "description": "JSONPath expressions for fields to ignore during diff"
+        },
+        "indusHttpReplay.allowInsecureTls": {
+          "type": "boolean",
+          "default": false,
+          "description": "Allow insecure TLS connections (self-signed certificates)"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack --mode development",
+    "watch": "webpack --mode development --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p tsconfig.test.json",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.85.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.3",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "undici": "^6.3.0"
+  }
+}

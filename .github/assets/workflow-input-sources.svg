@@ -1,0 +1,61 @@
+<svg width="1200" height="680" viewBox="0 0 1200 680" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#172554" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#93c5fd" />
+    </marker>
+    <style>
+      .title { font: 700 38px 'Segoe UI', Arial, sans-serif; fill: #e2e8f0; }
+      .subtitle { font: 500 20px 'Segoe UI', Arial, sans-serif; fill: #cbd5e1; }
+      .nodeTitle { font: 700 22px 'Segoe UI', Arial, sans-serif; fill: #e0f2fe; }
+      .nodeText { font: 500 16px 'Segoe UI', Arial, sans-serif; fill: #bfdbfe; }
+      .centerTitle { font: 800 30px 'Segoe UI', Arial, sans-serif; fill: #f8fafc; }
+      .centerText { font: 500 17px 'Segoe UI', Arial, sans-serif; fill: #dbeafe; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="680" fill="url(#bg)" />
+  <text x="60" y="72" class="title">Indus HTTP Replay: Input Sources Workflow</text>
+  <text x="60" y="106" class="subtitle">Any request-like text can be normalized into one replay request model.</text>
+
+  <rect x="80" y="160" width="280" height="110" rx="18" fill="#0b3b6e" stroke="#60a5fa" stroke-width="2" />
+  <text x="105" y="204" class="nodeTitle">Raw HTTP</text>
+  <text x="105" y="232" class="nodeText">POST /orders + headers + body</text>
+
+  <rect x="80" y="295" width="280" height="110" rx="18" fill="#0b3b6e" stroke="#60a5fa" stroke-width="2" />
+  <text x="105" y="339" class="nodeTitle">curl Command</text>
+  <text x="105" y="367" class="nodeText">curl -X POST ... -H ... -d ...</text>
+
+  <rect x="80" y="430" width="280" height="110" rx="18" fill="#0b3b6e" stroke="#60a5fa" stroke-width="2" />
+  <text x="105" y="474" class="nodeTitle">Log Pattern</text>
+  <text x="105" y="502" class="nodeText">REQUEST POST /path body={...}</text>
+
+  <rect x="80" y="565" width="280" height="90" rx="18" fill="#0b3b6e" stroke="#60a5fa" stroke-width="2" />
+  <text x="105" y="613" class="nodeTitle">HAR + .indus.http</text>
+
+  <rect x="460" y="205" width="350" height="270" rx="28" fill="url(#card)" stroke="#93c5fd" stroke-width="3" />
+  <text x="505" y="275" class="centerTitle">Request Extractor</text>
+  <text x="505" y="309" class="centerText">Parser detection (raw/curl/log/har/file)</text>
+  <text x="505" y="338" class="centerText">Validation: method, path, headers, body</text>
+  <text x="505" y="367" class="centerText">Normalization into ReplayRequest</text>
+  <text x="505" y="396" class="centerText">Ready for multi-target dispatch</text>
+
+  <rect x="885" y="245" width="240" height="190" rx="20" fill="#052e16" stroke="#4ade80" stroke-width="2" />
+  <text x="910" y="292" class="nodeTitle" style="fill:#dcfce7">Replay Engine</text>
+  <text x="910" y="324" class="nodeText" style="fill:#bbf7d0">Worker pool receives</text>
+  <text x="910" y="350" class="nodeText" style="fill:#bbf7d0">a clean request object</text>
+  <text x="910" y="376" class="nodeText" style="fill:#bbf7d0">for execution.</text>
+
+  <line x1="360" y1="215" x2="460" y2="250" stroke="#93c5fd" stroke-width="3" marker-end="url(#arrow)" />
+  <line x1="360" y1="350" x2="460" y2="335" stroke="#93c5fd" stroke-width="3" marker-end="url(#arrow)" />
+  <line x1="360" y1="485" x2="460" y2="410" stroke="#93c5fd" stroke-width="3" marker-end="url(#arrow)" />
+  <line x1="360" y1="610" x2="460" y2="450" stroke="#93c5fd" stroke-width="3" marker-end="url(#arrow)" />
+  <line x1="810" y1="340" x2="885" y2="340" stroke="#86efac" stroke-width="3" marker-end="url(#arrow)" />
+</svg>

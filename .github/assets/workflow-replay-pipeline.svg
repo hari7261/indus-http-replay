@@ -1,0 +1,59 @@
+<svg width="1200" height="680" viewBox="0 0 1200 680" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#1f2937" />
+    </linearGradient>
+    <linearGradient id="step" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0ea5e9" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+    <marker id="arrow2" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#93c5fd" />
+    </marker>
+    <style>
+      .title { font: 700 38px 'Segoe UI', Arial, sans-serif; fill: #e5e7eb; }
+      .subtitle { font: 500 20px 'Segoe UI', Arial, sans-serif; fill: #cbd5e1; }
+      .stepTitle { font: 700 22px 'Segoe UI', Arial, sans-serif; fill: #f8fafc; }
+      .stepText { font: 500 16px 'Segoe UI', Arial, sans-serif; fill: #dbeafe; }
+      .targetText { font: 700 17px 'Segoe UI', Arial, sans-serif; fill: #ecfdf5; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="680" fill="url(#bg2)" />
+  <text x="56" y="72" class="title">Replay Pipeline Workflow</text>
+  <text x="56" y="106" class="subtitle">From selection to multi-target responses with progress and cancellation.</text>
+
+  <rect x="70" y="190" width="220" height="140" rx="20" fill="url(#step)" stroke="#bae6fd" stroke-width="2" />
+  <text x="95" y="244" class="stepTitle">1. Select</text>
+  <text x="95" y="273" class="stepText">User highlights request</text>
+  <text x="95" y="297" class="stepText">in editor content</text>
+
+  <rect x="330" y="190" width="220" height="140" rx="20" fill="url(#step)" stroke="#bae6fd" stroke-width="2" />
+  <text x="355" y="244" class="stepTitle">2. Extract</text>
+  <text x="355" y="273" class="stepText">Parser builds ReplayRequest</text>
+  <text x="355" y="297" class="stepText">method/path/body/headers</text>
+
+  <rect x="590" y="190" width="240" height="140" rx="20" fill="url(#step)" stroke="#bae6fd" stroke-width="2" />
+  <text x="615" y="244" class="stepTitle">3. Dispatch</text>
+  <text x="615" y="273" class="stepText">WorkerPool executes</text>
+  <text x="615" y="297" class="stepText">targets in parallel</text>
+
+  <rect x="870" y="160" width="280" height="220" rx="20" fill="#14532d" stroke="#86efac" stroke-width="2" />
+  <text x="900" y="215" class="stepTitle" style="fill:#dcfce7">4. Target Execution</text>
+  <text x="900" y="249" class="targetText">Target A   200 OK</text>
+  <text x="900" y="278" class="targetText">Target B   500 ERR</text>
+  <text x="900" y="307" class="targetText">Target C   200 OK</text>
+  <text x="900" y="336" class="stepText" style="fill:#bbf7d0">Progress events stream back</text>
+
+  <rect x="300" y="430" width="600" height="180" rx="22" fill="#312e81" stroke="#c4b5fd" stroke-width="2" />
+  <text x="340" y="485" class="stepTitle" style="fill:#ede9fe">5. Replay Panel + Diff</text>
+  <text x="340" y="517" class="stepText" style="fill:#ddd6fe">Body / Headers / Raw / Diff tabs update live</text>
+  <text x="340" y="546" class="stepText" style="fill:#ddd6fe">Cancel option supported during active requests</text>
+  <text x="340" y="575" class="stepText" style="fill:#ddd6fe">History entry stored when session completes</text>
+
+  <line x1="290" y1="260" x2="330" y2="260" stroke="#93c5fd" stroke-width="3" marker-end="url(#arrow2)" />
+  <line x1="550" y1="260" x2="590" y2="260" stroke="#93c5fd" stroke-width="3" marker-end="url(#arrow2)" />
+  <line x1="830" y1="260" x2="870" y2="260" stroke="#93c5fd" stroke-width="3" marker-end="url(#arrow2)" />
+  <line x1="1010" y1="380" x2="760" y2="430" stroke="#a7f3d0" stroke-width="3" marker-end="url(#arrow2)" />
+</svg>

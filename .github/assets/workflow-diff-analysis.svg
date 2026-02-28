@@ -1,0 +1,58 @@
+<svg width="1200" height="680" viewBox="0 0 1200 680" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1020" />
+      <stop offset="100%" stop-color="#1e1b4b" />
+    </linearGradient>
+    <marker id="arrow3" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c7d2fe" />
+    </marker>
+    <style>
+      .title { font: 700 38px 'Segoe UI', Arial, sans-serif; fill: #e2e8f0; }
+      .subtitle { font: 500 20px 'Segoe UI', Arial, sans-serif; fill: #cbd5e1; }
+      .panelTitle { font: 700 22px 'Segoe UI', Arial, sans-serif; fill: #f8fafc; }
+      .panelText { font: 500 16px 'Segoe UI', Arial, sans-serif; fill: #c7d2fe; }
+      .good { fill: #86efac; font: 700 16px 'Segoe UI', Arial, sans-serif; }
+      .bad { fill: #fca5a5; font: 700 16px 'Segoe UI', Arial, sans-serif; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="680" fill="url(#bg3)" />
+  <text x="56" y="72" class="title">Response Diff Analysis Workflow</text>
+  <text x="56" y="106" class="subtitle">Semantic comparison: status, headers, and JSON structure with ignore paths.</text>
+
+  <rect x="70" y="180" width="320" height="390" rx="22" fill="#1f2937" stroke="#60a5fa" stroke-width="2" />
+  <text x="98" y="230" class="panelTitle">Staging Response</text>
+  <text x="98" y="265" class="panelText">Status: 200</text>
+  <text x="98" y="295" class="panelText">x-env: staging</text>
+  <text x="98" y="325" class="panelText">{</text>
+  <text x="118" y="352" class="panelText">"id": "u-103"</text>
+  <text x="118" y="379" class="panelText">"role": "admin"</text>
+  <text x="118" y="406" class="panelText">"traceId": "abc-123"</text>
+  <text x="98" y="433" class="panelText">}</text>
+  <text x="98" y="477" class="good">Stable fields match expected schema</text>
+
+  <rect x="810" y="180" width="320" height="390" rx="22" fill="#1f2937" stroke="#34d399" stroke-width="2" />
+  <text x="838" y="230" class="panelTitle">Production Response</text>
+  <text x="838" y="265" class="panelText">Status: 500</text>
+  <text x="838" y="295" class="panelText">x-env: production</text>
+  <text x="838" y="325" class="panelText">{</text>
+  <text x="858" y="352" class="panelText">"id": "u-103"</text>
+  <text x="858" y="379" class="panelText">"role": "guest"</text>
+  <text x="858" y="406" class="panelText">"traceId": "x9z-900"</text>
+  <text x="838" y="433" class="panelText">}</text>
+  <text x="838" y="477" class="bad">Behavior regression detected</text>
+
+  <rect x="430" y="210" width="340" height="330" rx="24" fill="#312e81" stroke="#c4b5fd" stroke-width="2" />
+  <text x="458" y="258" class="panelTitle" style="fill:#ede9fe">Diff Engine</text>
+  <text x="458" y="292" class="panelText" style="fill:#ddd6fe">- Compare HTTP status</text>
+  <text x="458" y="320" class="panelText" style="fill:#ddd6fe">- Compare headers</text>
+  <text x="458" y="348" class="panelText" style="fill:#ddd6fe">- Compare JSON nodes (order agnostic)</text>
+  <text x="458" y="376" class="panelText" style="fill:#ddd6fe">- Respect ignore paths:</text>
+  <text x="476" y="404" class="panelText" style="fill:#ddd6fe">$.timestamp, $.traceId</text>
+  <text x="458" y="448" class="bad">Diff result: role mismatch + status mismatch</text>
+  <text x="458" y="480" class="panelText" style="fill:#ddd6fe">Render in Diff tab for rapid debugging</text>
+
+  <line x1="390" y1="350" x2="430" y2="350" stroke="#c7d2fe" stroke-width="3" marker-end="url(#arrow3)" />
+  <line x1="810" y1="350" x2="770" y2="350" stroke="#c7d2fe" stroke-width="3" marker-end="url(#arrow3)" />
+</svg>

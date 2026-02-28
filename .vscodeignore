@@ -1,0 +1,22 @@
+.vscode/**
+.vscode-test/**
+out/**
+node_modules/**
+src/**
+**/*.ts
+**/*.map
+*.vsix
+.git/**
+.gitignore
+webpack.config.js
+tsconfig.json
+*.test.js
+**/*.spec.ts
+
+# Keep
+!dist/extension.js
+!dist/replayWorker.js
+!media/icon.png
+!media/icon.svg
+!syntaxes/**
+!language-configuration.json

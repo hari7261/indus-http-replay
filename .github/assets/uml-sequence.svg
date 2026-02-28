@@ -1,0 +1,65 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="umlBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+    <marker id="umlArrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#bfdbfe" />
+    </marker>
+    <style>
+      .title { font: 700 36px 'Segoe UI', Arial, sans-serif; fill: #e5e7eb; }
+      .actor { font: 700 18px 'Segoe UI', Arial, sans-serif; fill: #f8fafc; }
+      .msg { font: 500 14px 'Segoe UI', Arial, sans-serif; fill: #dbeafe; }
+      .note { font: 500 13px 'Segoe UI', Arial, sans-serif; fill: #bfdbfe; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="700" fill="url(#umlBg)" />
+  <text x="50" y="60" class="title">UML Sequence: Indus HTTP Replay Request Execution</text>
+
+  <rect x="90" y="95" width="150" height="42" rx="10" fill="#1d4ed8" />
+  <text x="125" y="122" class="actor">User</text>
+
+  <rect x="300" y="95" width="200" height="42" rx="10" fill="#2563eb" />
+  <text x="330" y="122" class="actor">VS Code UI</text>
+
+  <rect x="560" y="95" width="210" height="42" rx="10" fill="#0ea5e9" />
+  <text x="590" y="122" class="actor">Extension Host</text>
+
+  <rect x="830" y="95" width="200" height="42" rx="10" fill="#16a34a" />
+  <text x="860" y="122" class="actor">Worker Process</text>
+
+  <rect x="1060" y="95" width="120" height="42" rx="10" fill="#22c55e" />
+  <text x="1084" y="122" class="actor">Target API</text>
+
+  <line x1="165" y1="137" x2="165" y2="650" stroke="#3b82f6" stroke-width="2" stroke-dasharray="7 6" />
+  <line x1="400" y1="137" x2="400" y2="650" stroke="#60a5fa" stroke-width="2" stroke-dasharray="7 6" />
+  <line x1="665" y1="137" x2="665" y2="650" stroke="#38bdf8" stroke-width="2" stroke-dasharray="7 6" />
+  <line x1="930" y1="137" x2="930" y2="650" stroke="#4ade80" stroke-width="2" stroke-dasharray="7 6" />
+  <line x1="1120" y1="137" x2="1120" y2="650" stroke="#86efac" stroke-width="2" stroke-dasharray="7 6" />
+
+  <line x1="165" y1="190" x2="400" y2="190" stroke="#bfdbfe" stroke-width="2.4" marker-end="url(#umlArrow)" />
+  <text x="225" y="176" class="msg">Select text + run command</text>
+
+  <line x1="400" y1="245" x2="665" y2="245" stroke="#bfdbfe" stroke-width="2.4" marker-end="url(#umlArrow)" />
+  <text x="460" y="231" class="msg">indus.replayHttpRequest()</text>
+
+  <line x1="665" y1="300" x2="665" y2="345" stroke="#bfdbfe" stroke-width="2.4" />
+  <text x="678" y="326" class="note">Extract + normalize request</text>
+
+  <line x1="665" y1="390" x2="930" y2="390" stroke="#bfdbfe" stroke-width="2.4" marker-end="url(#umlArrow)" />
+  <text x="728" y="376" class="msg">execute(sessionId, targets)</text>
+
+  <line x1="930" y1="445" x2="1120" y2="445" stroke="#bfdbfe" stroke-width="2.4" marker-end="url(#umlArrow)" />
+  <text x="968" y="431" class="msg">HTTP request</text>
+
+  <line x1="1120" y1="500" x2="930" y2="500" stroke="#bfdbfe" stroke-width="2.4" marker-end="url(#umlArrow)" />
+  <text x="982" y="486" class="msg">status + headers + body</text>
+
+  <line x1="930" y1="555" x2="665" y2="555" stroke="#bfdbfe" stroke-width="2.4" marker-end="url(#umlArrow)" />
+  <text x="742" y="541" class="msg">progress/result events</text>
+
+  <line x1="665" y1="610" x2="400" y2="610" stroke="#bfdbfe" stroke-width="2.4" marker-end="url(#umlArrow)" />
+  <text x="470" y="596" class="msg">Render panel state + diff</text>
+</svg>

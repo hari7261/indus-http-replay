@@ -1,0 +1,47 @@
+{
+  "scopeName": "source.indus-http",
+  "name": "Indus HTTP",
+  "fileTypes": ["indus.http"],
+  "patterns": [
+    { "include": "#comment" },
+    { "include": "#request-separator" },
+    { "include": "#request-line" },
+    { "include": "#header" },
+    { "include": "#json-body" }
+  ],
+  "repository": {
+    "comment": {
+      "name": "comment.line.number-sign.indus-http",
+      "match": "#.*$"
+    },
+    "request-separator": {
+      "name": "keyword.control.indus-http",
+      "match": "^###.*$"
+    },
+    "request-line": {
+      "name": "meta.request-line.indus-http",
+      "match": "^(GET|POST|PUT|PATCH|DELETE|HEAD|OPTIONS|TRACE)\\s+(\\S+)\\s*(HTTP/[\\d.]+)?$",
+      "captures": {
+        "1": { "name": "keyword.operator.http-method.indus-http" },
+        "2": { "name": "string.unquoted.path.indus-http" },
+        "3": { "name": "constant.language.http-version.indus-http" }
+      }
+    },
+    "header": {
+      "name": "meta.header.indus-http",
+      "match": "^([\\w-]+):\\s*(.+)$",
+      "captures": {
+        "1": { "name": "keyword.other.header-name.indus-http" },
+        "2": { "name": "string.unquoted.header-value.indus-http" }
+      }
+    },
+    "json-body": {
+      "name": "meta.body.indus-http",
+      "begin": "^(?=\\{|\\[)",
+      "end": "(?<=\\}|\\])",
+      "patterns": [
+        { "include": "source.json" }
+      ]
+    }
+  }
+}
